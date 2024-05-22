@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2a1ed1;
+            background-image: url(https://th.bing.com/th/id/OIP.KPJKuv844oyM8JxaaTLZ2QHaEO?rs=1&pid=ImgDetMain);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: greenyellow;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(216, 6, 6, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0af516;
+        }
+
+        .medicine-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .medicine-list li {
+            margin-bottom: 10px;
+            background-color: #e1e5e9;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .medicine-list li:hover {
+            background-color: #e9ecef;
+        }
+
+        .medicine-details {
+            display: none;
+            margin-top: 20px;
+            background-color: #e3eaf1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .medicine-details h2 {
+            margin-top: 0;
+            color: black;
+        }
+
+        .bg-gradient {
+            background: linear-gradient(to right, #56CCF2, #2F80ED);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg-gradient">
+            <h1>Medicine Store</h1>
+        </div>
+        <ul class="medicine-list">
+            <li class="medicine-item" data-name="Paracetamol" data-price="5">Paracetamol</li>
+            <li class="medicine-item" data-name="DOLO 650" data-price="7">DOLO 650</li>
+            <li class="medicine-item" data-name="Aspirin" data-price="4">Aspirin</li>
+            <li class="medicine-item" data-name="Cetrizine" data-price="6">Cetrizine</li>
+            <li class="medicine-item" data-name="Crocine" data-price="8">Crocine</li>
+        </ul>
+        <div class="medicine-details" id="medicineDetails">
+            <h2>Medicine Details</h2>
+            <p><strong>Name:</strong> <span id="medicineName"></span></p>
+            <p><strong>Price:</strong> $<span id="medicinePrice"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const medicineItems = document.querySelectorAll(".medicine-item");
+            const medicineDetails = document.getElementById("medicineDetails");
+            const medicineName = document.getElementById("medicineName");
+            const medicinePrice = document.getElementById("medicinePrice");
+
+            medicineItems.forEach(item => {
+                item.addEventListener("click", function() {
+                    const name = this.getAttribute("data-name");
+                    const price = this.getAttribute("data-price");
+
+                    medicineName.textContent = name;
+                    medicinePrice.textContent = price;
+
+                    medicineDetails.style.display = "block";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
